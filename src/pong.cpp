@@ -18,9 +18,15 @@ void LogicCallPong(cGameManager& gameManager)
 	else if (gameManager.ball.position.y < 1 || gameManager.ball.position.y >= gameManager.getHeight() - 2)
 	{
 		if (gameManager.ball.position.y < 1)
+		{
+			gameManager.ball.position.y = 1;
 			gameManager.ball.RandomDirection(5, 6);
+		}
 		else
+		{
+			gameManager.ball.position.y = gameManager.getHeight() - 2;
 			gameManager.ball.RandomDirection(3, 4);
+		}
 	}
 	else if (gameManager.ball.position.x < 1 || gameManager.ball.position.x >= gameManager.getWidth() - 1)
 	{

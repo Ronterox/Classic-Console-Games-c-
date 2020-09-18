@@ -89,6 +89,9 @@ void CheckSelection()
 		switch (menulvl)
 		{
 		case -1:
+			fontSize(30);
+			PlayHangman();
+			fontSize(40);
 			break;
 		case 0:
 			PlaySnake(60, 20, 10);
@@ -151,17 +154,17 @@ void Start()
 {
 	fontSize(40);
 	MaximizeWindow();
-	Draw("Play Snake", "Play Pong", "Play TicTacToe");
+	Draw("Play Snake", "Play Pong", "Play Hangman");
 
 	while (!fini)
 	{
 		if (InputMenu())
 		{
 			if (menulvl == -1)
-				Draw("Play Snake", "Play Pong", "Play TicTacToe");
+				Draw("Play Snake", "Play Pong", "Play Hangman");
 			else if (menulvl == 0)
 				Draw("Easy Mode", "Classic Mode", "Hard Mode");
-			else
+			else if (menulvl == 1)
 				Draw("\b\bBoring Mode", "Classic Mode", "60 FPS Mode");
 		}
 	}
