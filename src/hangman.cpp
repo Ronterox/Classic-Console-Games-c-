@@ -1,17 +1,43 @@
 #include <iostream>
 #include <string>
+#include <chrono>
 
 #define height 20
 #define width 29
+#define words 10
 
 int h_guesses;
 std::string h_word;
 std::string p_word;
 
+std::string GetRandomWord()
+{
+	int num = rand() % words;
+	std::string h_word_selected;
+	//independence of external files, simple solution
+	switch (num)
+	{
+	case 0: h_word_selected = "Minecraft"; break;
+	case 1: h_word_selected = "Love"; break;
+	case 2: h_word_selected = "CAPITALS"; break;
+	case 3: h_word_selected = "Word"; break;
+	case 4: h_word_selected = "World"; break;
+	case 5: h_word_selected = "NoSpacesAllowed"; break;
+	case 6: h_word_selected = "Nicer"; break;
+	case 7: h_word_selected = "Gameplay"; break;
+	case 8: h_word_selected = "Quality"; break;
+	case 9: h_word_selected = "Stupidness"; break;
+	default: h_word_selected = "Hangman"; break;
+	}
+	return h_word_selected;
+}
+
 void StartHangman()
 {
+	srand(time(0));
+
 	h_guesses = 10;
-	h_word = "HangDUDE";
+	h_word = GetRandomWord();
 	p_word = "";
 }
 
@@ -185,7 +211,7 @@ void ComparePWord()
 	int counter = 0;
 	for (int i = 0; i < (int)h_word.length(); i++)
 	{
-		if (p_word.find(h_word[i]) != std::string::npos) counter++;
+		if (p_word.find(toupper(h_word[i])) != std::string::npos) counter++;
 	}
 	if (counter == (int)h_word.length())
 		h_guesses = 100;
@@ -206,6 +232,6 @@ void PlayHangman()
 	if (h_guesses == 100)
 		std::cout << "YOU WON, NICE!\n";
 	else
-		std::cout << "YOU LOST HAHAHAHA\n";
+		std::cout << "HOW DID YOU EVEN LOSE?\n";
 	system("pause");
 }

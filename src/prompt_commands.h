@@ -43,7 +43,7 @@ public:
 	{	
 	}
 
-	const float& getDuration()
+	const float getDuration()
 	{
 		end = std::chrono::high_resolution_clock::now();
 		duration = end - start;

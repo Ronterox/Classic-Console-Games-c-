@@ -106,7 +106,9 @@ void DrawCallSnake()
 		std::cout << std::endl;
 	}
 	textcolor(6);
-	std::cout << "Score: " << score;
+	std::cout << "Score: ";
+	textcolor(7);
+	std::cout << score;
 	textcolor(3);
 	std::cout << "	Esc or X To Exit\n\n";
 	std::cout << "Tail Length: " << nTail << "\n\n";

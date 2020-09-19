@@ -31,9 +31,9 @@ void LogicCallPong(cGameManager& gameManager)
 	else if (gameManager.ball.position.x < 1 || gameManager.ball.position.x >= gameManager.getWidth() - 1)
 	{
 		if (gameManager.ball.position.x < 1)
-			gameManager.ResetRound(1, 1);
-		else
 			gameManager.ResetRound(1, 2);
+		else
+			gameManager.ResetRound(1, 1);
 	}
 	else if (gameManager.paddle1.isHitting(gameManager.ball.position.x, gameManager.ball.position.y))
 	{
@@ -105,7 +105,13 @@ void DrawCallPong(cGameManager& gameManager)
 		std::cout << "\n";
 	}
 	textcolor(6);
-	std::cout << "Player 1: " << gameManager.score1 << "	Player 2: " << gameManager.score2 << "\n\n";
+	std::cout << "Player 1: ";
+	textcolor(7);
+	std::cout << gameManager.score1;
+	textcolor(6);
+	std::cout << "	Player 2: ";
+	textcolor(7);
+	std::cout << gameManager.score2 << "\n\n";
 	textcolor(3);
 	std::cout << "R to Start or Restart	Esc or X To Exit\n\n";
 
