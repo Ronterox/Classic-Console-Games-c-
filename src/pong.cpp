@@ -1,3 +1,5 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java: http://www.viva64.com
 #include <iostream>
 #include <conio.h>
 #include "prompt_commands.h"
@@ -70,6 +72,7 @@ void InputCallPong(cGameManager& gameManager)
 		case KEY_ESCAPE:
 		case 'x':
 			gameManager.gameOver = true;
+			break;
 		case 'r':
 			gameManager.RestartGame();
 			break;
@@ -120,7 +123,7 @@ void DrawCallPong(cGameManager& gameManager)
 
 void UpdatePong(const int& fps, cGameManager& gameManager)
 {
-	float delay = 1000 / fps;
+	float delay = (float)1000 / fps;
 	while (!gameManager.gameOver)
 	{
 		FrameTimer timer;
@@ -128,7 +131,7 @@ void UpdatePong(const int& fps, cGameManager& gameManager)
 		LogicCallPong(gameManager);
 		DrawCallPong(gameManager);
 		if (delay > timer.getDuration())
-			Sleep(delay - timer.getDuration());
+			Sleep((DWORD)delay - (DWORD)timer.getDuration());
 	}
 }
 

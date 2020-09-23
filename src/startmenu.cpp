@@ -1,3 +1,5 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java: http://www.viva64.com
 #include <conio.h>
 #include <iostream>
 #include "games.h"
@@ -5,10 +7,10 @@
 
 #define KEY_ESCAPE 27
 #define KEY_UP 72
-#define key_down 80
-#define key_left 75
-#define key_right 77
-#define key_return 13
+#define KEY_DOWN 80
+#define KEY_LEFT 75
+#define KEY_RIGHT 77
+#define KEY_RETURN 13
 
 unsigned int selected = 0;
 int menulvl = -1;
@@ -119,18 +121,14 @@ bool InputMenu()
 		switch (_getch())
 		{
 		case 'a':
-		case key_left:
+		case KEY_LEFT:
 			if (selected > 0)
 				selected--;
 			break;
 		case 'd':
-		case key_right:
+		case KEY_RIGHT:
 			if (selected < 2)
 				selected++;
-			break;
-		case 's':
-		case key_down:
-			selected = 3;
 			break;
 		case 'w':
 		case KEY_UP:
@@ -138,10 +136,12 @@ bool InputMenu()
 				selected = 1;
 			break;
 		case 'x':
+		case 's':
+		case KEY_DOWN:
 		case KEY_ESCAPE:
 			selected = 3;
 			break;
-		case key_return:
+		case KEY_RETURN:
 			CheckSelection();
 			break;
 		}

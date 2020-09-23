@@ -42,24 +42,13 @@ public:
 	{
 		switch (dir)
 		{
-		case cDirection::RIGHT:
-			position.x++;
-			break;
-		case cDirection::RIGHT_UP:
-			position.x++; position.y--;
-			break;
-		case cDirection::RIGHT_DOWN:
-			position.x++; position.y++;
-			break;
-		case cDirection::LEFT:
-			position.x--;
-			break;
-		case cDirection::LEFT_DOWN:
-			position.x--; position.y++;
-			break;
-		case cDirection::LEFT_UP:
-			position.x--; position.y--;
-			break;
+		case cDirection::RIGHT: position.x++; break;
+		case cDirection::RIGHT_UP: position.x++; position.y--; break;
+		case cDirection::RIGHT_DOWN: position.x++; position.y++; break;
+		case cDirection::LEFT: position.x--; break;
+		case cDirection::LEFT_DOWN: position.x--; position.y++; break;
+		case cDirection::LEFT_UP: position.x--; position.y--; break;
+		case cDirection::STOP: break;
 		}
 	}
 	/*

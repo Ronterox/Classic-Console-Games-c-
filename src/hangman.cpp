@@ -1,3 +1,5 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java: http://www.viva64.com
 #include <iostream>
 #include <string>
 #include <chrono>
@@ -38,7 +40,6 @@ void StartHangman()
 
 	h_guesses = 10;
 	h_word = GetRandomWord();
-	p_word = "";
 }
 
 void PrintLetters(const char& from, const char& to)

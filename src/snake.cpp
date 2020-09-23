@@ -1,3 +1,5 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java: http://www.viva64.com
 #include <iostream>
 #include <conio.h>
 #include "prompt_commands.h"
@@ -58,7 +60,7 @@ void StartSnake(const int& w, const int& h, const int& fps)
 
 	score = 0;
 
-	srand(time(0));
+	srand((unsigned int)time(0));
 
 	posX = width / 2;
 	posY = height / 2;
@@ -140,18 +142,11 @@ void LogicSnake()
 	}
 	switch (dir)
 	{
-	case cDirection::Up:
-		posY--;
-		break;
-	case cDirection::Down:
-		posY++;
-		break;
-	case cDirection::Left:
-		posX--;
-		break;
-	case cDirection::Right:
-		posX++;
-		break;
+	case cDirection::Up: posY--; break;
+	case cDirection::Down: posY++; break;
+	case cDirection::Left: posX--; break;
+	case cDirection::Right: posX++; break;
+	case cDirection::Stop: break;
 	}
 
 	if (HittingTail(posX, posY))
@@ -204,7 +199,7 @@ void InputSnake()
 
 void UpdateSnake(const int& fps)
 {
-	float delay = 1000 / fps;
+	float delay = (float)1000 / fps;
 	while (!gameOver)
 	{
 		FrameTimer timer;
@@ -212,7 +207,7 @@ void UpdateSnake(const int& fps)
 		LogicSnake();
 		DrawCallSnake();
 		if (delay > timer.getDuration())
-			Sleep(delay - timer.getDuration());
+			Sleep((DWORD)delay - (DWORD)timer.getDuration());
 	}
 	Sleep(300);
 }
